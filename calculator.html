@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title> calculator </title>
+  <meta charset="utf-8">
+</head>
+
+<body>
+  <style>
+    html {
+      font-size: 62.5%;
+      box-sizing: border-box;
+    }
+
+    .calc {
+      width: 120px;
+      background-color: gray;
+      border-radius: 5px;
+      padding: 26px;
+      margin: 5px;
+      font-size: 30px;
+      text-align: center;
+      border: 3px solid black;
+
+    }
+
+
+    #display {
+      width: 120px;
+      text-align: right;
+      color: white;
+      background-color: black;
+      border: 5px solid black;
+      border-radius: 3px;
+      padding: 20px;
+      margin: auto;
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      font-size: 1.6em;
+
+
+
+    }
+  </style>
+  <script>
+    {
+      function insert(num) {
+        document.getElementById('display').value += num;
+      }
+
+      function equal() {
+        var display = document.getElementById('display').value;
+        if (display) {
+          document.getElementById('display').value = eval(display)
+        }
+      }
+
+      function del() {
+        var display = document.getElementById('display').value;
+        document.getElementById('display').value = display.substring(0, display.length - 1);
+      }
+    } {
+      window.red = 97;
+      window.green = 132;
+      window.blue = 201;
+      document.getElementById('range')
+
+      function colorRed(value) {
+        window.red = value;
+        backgroundColorChanger();
+      }
+
+      function colorGreen(value) {
+        window.green = value;
+        backgroundColorChanger();
+      }
+
+      function colorBlue(value) {
+        window.blue = value;
+        backgroundColorChanger();
+      }
+
+      function backgroundColorChanger() {
+        document.getElementById("output").innerHTML = window.red + ", " + window.green + ", " + window.blue;
+        document.getElementById("calculator").style.backgroundColor = "rgb(" + window.red + "," + window.green + "," + window.blue + ")";
+      }
+
+    } {
+      var elements = document.getElementsByClassName("calc");
+
+      function increaseWidth(value) {
+        document.getElementById("calculator").style.width = ((value * 5) + 75) + "px";
+        for (var i = 0; i < elements.length; i++) {
+          if (elements[i].name == "display") {
+            elements[i].style.width = ((value * 5) + 30) + "px";
+          } else if (elements[i].name == "equalsto") {
+            elements[i].style.width = ((value * 2) + 10) + "px";
+          } else if (elements[i].name == "container") {
+            elements[i].style.width = ((value * 5) + 100) + "px";
+          } else {
+            elements[i].style.width = value + "px";
+          }
+        }
+
+
+      }
+
+      function increaseHeight(value) {
+        for (var i = 0; i < elements.length; i++) {
+
+          elements[i].style.height = value + "px";
+        }
+      }
+    }
+  </script>
+
+  </div>
+  <div id="calculator" name="container" style="background-color: rgb(97, 132, 201); width:667px; border: 3px solid black;">
+    <input type="text" class="calc" name="display" id="display" placeholder="0" style="width: 20.5em; height: 2.5em;" readonly>
+
+
+
+    <div>
+      <input class="calc" type="button" value="7" onclick="insert('7')">
+      <input class="calc" type="button" value="8" onclick="insert('8')">
+      <input class="calc" type="button" value="9" onclick="insert('9')">
+      <input class="calc" type="button" value="DEL" onclick="del()">
+      <input class="calc" type="button" value="C" onclick="document.getElementById('display').value = ''">
+    </div>
+
+    <div>
+      <input class="calc" type="button" value="4" onclick="insert('4')">
+      <input class="calc" type="button" value="5" onclick="insert('5')">
+      <input class="calc" type="button" value="6" onclick="insert('6')">
+      <input class="calc" type="button" value="&#215;" onclick="insert('*')">
+      <input class="calc" type="button" value="&divide" onclick="insert('/')">
+    </div>
+
+    <div>
+      <input class="calc" type="button" value="1" onclick="insert('1')">
+      <input class="calc" type="button" value="2" onclick="insert('2')">
+      <input class="calc" type="button" value="3" onclick="insert('3')">
+      <input class="calc" type="button" value="&#43" onclick="insert('+')">
+      <input class="calc" type="button" value="&#8722" onclick="insert('-')">
+    </div>
+
+    <div>
+      <input class="calc" type="button" value="0" onclick="insert('0')">
+      <input class="calc" type="button" value="." onclick="insert('.')">
+      <input class="calc" type="button" value="&#215;10&#8319;" onclick="insert('e')">
+      <input class="calc" type="button" style="width:250px;" name="equalsto" value="&#x3D;" onclick=" equal()">
+    </div>
+  </div>
+  <div>
+    <label for="red">Red:</label><input name="red" type="range" min="0" max="255" value="97" onmousemove="colorRed(this.value)" /><br />
+    <label for="green">Green: </label><input name="green" type="range" min="0" max="255" value="132" onmousemove="colorGreen(this.value)" /><br />
+    <label for="blue">Blue: </label><input name="blue" type="range" min="0" max="255" value="201" onmousemove="colorBlue(this.value)" /><br />
+    <span id="output"></span>
+  </div>
+
+  </div>
+
+  <div>
+    <span>Button Width: </span><input type="range" min="0" max="250" value="120" onmousemove="increaseWidth(this.value)" /><br />
+    <span>Button Height: </span><input type="range" min="0" max="250" value="90" onmousemove="increaseHeight(this.value)" /><br />
+  </div>
+
+</body>
+
+</html>
