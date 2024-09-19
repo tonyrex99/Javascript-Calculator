@@ -1,1 +1,1 @@
-This is a simple calculator app made with HTML and Javascript. It an perform basic calculations.
+This is a simple calculator app made with HTML and Javascript. It an perform basic calculations. It features customizable styles and grants its users the ability to change its color and button dimensions using sliders.
